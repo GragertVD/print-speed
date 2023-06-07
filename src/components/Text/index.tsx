@@ -14,11 +14,12 @@ export function Text() {
   stateActual.current = state;
 
   const keydownValidate = (e: KeyboardEvent) => {
-    if (e.key === stateActual.current.currentChar) {
-      dispatch({ type: TextActionTypes.MOUVE_CURSOR });
-    }
-    else
-      dispatch({ type: TextActionTypes.KEY_MISS });
+    if (e.key.length === 1)
+      if (e.key === stateActual.current.currentChar) {
+        dispatch({ type: TextActionTypes.MOUVE_CURSOR });
+      }
+      else
+        dispatch({ type: TextActionTypes.KEY_MISS });
   }
 
   useEffect(() => {
@@ -46,11 +47,11 @@ export function Text() {
       {
         textArr.map((element, index) => {
           if (index === state.currentCharIndex)
-            return <CurrentChar keyMiss={state.keyMiss}>{element}</CurrentChar>
+            return <CurrentChar key={index} keyMiss={state.keyMiss}>{element}</CurrentChar>
           if (index < state.currentCharIndex)
-            return <SuccesChar>{element}</SuccesChar>
+            return <SuccesChar key={index}>{element}</SuccesChar>
           else
-            return <span>{element}</span>
+            return <span key={index}>{element}</span>
         })
       }
     </TextContainer>

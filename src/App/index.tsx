@@ -1,4 +1,4 @@
-import CardTest from "../components/CradTest";
+import { CardTest } from "../components/CradTest";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import { Text } from "../components/Text";

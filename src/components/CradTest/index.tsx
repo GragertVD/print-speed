@@ -1,14 +1,14 @@
 import React from 'react'
 import { ButtonReload, CardTestContainer, CardTestInfoContainer } from './style'
 import { Text } from '../Text'
-import SpeedInfo from '../SpeedInfo'
-import AccuracyInfo from '../AccuracyInfo'
+import { SpeedInfo } from '../SpeedInfo'
+import { AccuracyInfo } from '../AccuracyInfo'
 import { useDispatch } from 'react-redux'
 import { fetchText } from '../../store/action-creators/text'
 
-function CardTest() {
+export const CardTest: React.FC = () => {
   const dispatch = useDispatch();
-  
+
 
   return (
     <CardTestContainer>
@@ -21,5 +21,3 @@ function CardTest() {
     </CardTestContainer>
   )
 }
-
-export default CardTest

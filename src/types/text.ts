@@ -42,5 +42,6 @@ export interface TextState {
   currentCharIndex: number,
   loading: boolean,
   keyMiss: boolean,
+  countMiss: number,
   error: string | null,
 }

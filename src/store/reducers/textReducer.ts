@@ -7,6 +7,7 @@ const initState: TextState = {
   currentCharIndex: 0,
   loading: false,
   keyMiss: false,
+  countMiss: 0,
   error: null,
 }
 
@@ -38,9 +39,13 @@ export const textReducer = (state: TextState = initState, action: TextAction): T
       return tempState;
 
     case TextActionTypes.KEY_MISS:
-      tempState.keyMiss = true;
-
-      return tempState;
+      if (!tempState.keyMiss){
+        tempState.countMiss++;
+        tempState.keyMiss = true;
+  
+        return tempState;
+      }
+      return state;
 
     case TextActionTypes.KEY_SUCCESS:
       tempState.keyMiss = false;
