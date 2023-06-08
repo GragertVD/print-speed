@@ -1,14 +1,14 @@
 import React from 'react'
 import { useTypedSelector } from '../../hooks/useTypedSelector';
 import { useEffect, useRef, useState } from 'react';
+import { AiOutlineHistory } from 'react-icons/ai';
+import { Language } from '../../types/text';
 
 export const SpeedInfo: React.FC = () => {
   const state = useTypedSelector(state => state.text);
 
   const stateActual = useRef(state);
   stateActual.current = state;
-
-
 
   const [speed, setSpeed] = useState(0);
 
@@ -22,7 +22,7 @@ export const SpeedInfo: React.FC = () => {
 
       prevSpeed = speed;
       if ((stateActual.current.currentCharIndex - prevCount) > 0)
-        speed = 0.9 * prevSpeed + 60 * (stateActual.current.currentCharIndex - prevCount);
+        speed = 0.75 * prevSpeed + 15 * (stateActual.current.currentCharIndex - prevCount);
       else
         speed = 0.9 * prevSpeed;
 
@@ -36,11 +36,10 @@ export const SpeedInfo: React.FC = () => {
     }
   }, [])
 
-
   return (
     <div>
-      <h4>Скорость</h4>
-      <span>{speed.toFixed(0)} зн./мин</span>
+      <h4><AiOutlineHistory /> {state.lang === Language.RU ? "Скорость" : "Speed"}</h4>
+      <span>{speed.toFixed(0)} { state.lang === Language.RU? "зн./мин" : "CPM"}</span>
     </div>
   )
 }

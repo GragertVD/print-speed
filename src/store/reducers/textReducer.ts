@@ -1,4 +1,4 @@
-import { TextAction, TextActionTypes, TextState } from "../../types/text";
+import { Language, TextAction, TextActionTypes, TextState } from "../../types/text";
 
 
 const initState: TextState = {
@@ -9,6 +9,7 @@ const initState: TextState = {
   keyMiss: false,
   countMiss: 0,
   error: null,
+  lang: Language.RU,
 }
 
 export const textReducer = (state: TextState = initState, action: TextAction): TextState => {
@@ -16,6 +17,7 @@ export const textReducer = (state: TextState = initState, action: TextAction): T
   tempState.error = null;
   switch (action.type) {
     case TextActionTypes.FETCH_TEXT:
+      // tempState = initState;
       tempState.loading = true;
       return tempState;
 
@@ -38,6 +40,12 @@ export const textReducer = (state: TextState = initState, action: TextAction): T
 
       return tempState;
 
+    case TextActionTypes.SET_LANGUAGE:
+      tempState.lang = action.payload;
+      console.log(tempState.lang);
+    
+      return tempState;
+
     case TextActionTypes.KEY_MISS:
       if (!tempState.keyMiss){
         tempState.countMiss++;
@@ -56,3 +64,5 @@ export const textReducer = (state: TextState = initState, action: TextAction): T
       return state;
   }
 }
+
+export const setLanguageAction = (payload: Language) => ({ type: TextActionTypes.SET_LANGUAGE , payload})

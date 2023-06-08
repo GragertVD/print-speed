@@ -5,7 +5,8 @@ export const ToggleStyl = styled.button<IPropsToggle>`
   border: none;
   width: 40px;
   height: 20px;
-  background: ${props => props.theme.colors.mainPurple};
+  background: ${props => props.theme.theme === "light" ? props.theme.colors.blue : props.theme.colors.darkGrey};
+
   border-radius: 12px;
 
   position: relative;
@@ -16,7 +17,7 @@ export const ToggleStyl = styled.button<IPropsToggle>`
   transition: all 0.1s;
   @media (any-hover: hover) {
     &:hover{
-      background: ${props => props.theme.colors.mainPurpleHover};
+      background: ${props => props.theme.theme === "light" ? props.theme.colors.veryDarkBlue : props.theme.colors.veryDarkGrey};
     }
   }
 

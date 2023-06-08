@@ -1,22 +1,25 @@
 import React from 'react'
 import { ToggleStyl } from './style';
+import { useDispatch } from 'react-redux';
+import { ThemeActionTypes } from '../../../types/main';
 
 export interface IPropsToggle {
   currentState: string;
   state: string[];
-  setState: (state: "light" | "dark") => void;
 };
 
 const Toggle: React.FC<IPropsToggle> = (props) => {
+  const dispatch = useDispatch();
+
   return (
     <ToggleStyl
       {...props}
       onClick={
         () => {
           if (props.currentState === props.state[0])
-            props.setState(props.state[1] as "light" | "dark");
+            dispatch({ type: ThemeActionTypes.SET_THEME, payload: props.state[1] })
           if (props.currentState === props.state[1])
-            props.setState(props.state[0] as "light" | "dark");
+            dispatch({ type: ThemeActionTypes.SET_THEME, payload: props.state[0] })
         }
       }
     ></ToggleStyl>

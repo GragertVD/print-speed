@@ -1,5 +1,7 @@
 import React from 'react'
 import { useTypedSelector } from '../../hooks/useTypedSelector';
+import { GiArcheryTarget } from 'react-icons/gi';
+import { Language } from '../../types/text';
 
 export const AccuracyInfo: React.FC = () => {
 
@@ -9,7 +11,8 @@ export const AccuracyInfo: React.FC = () => {
 
   return (
     <div>
-      <h4>Точность</h4>
+      
+      <h4><GiArcheryTarget />{state.lang === Language.RU ? "Точность" : "Accuracy"}</h4>
       <span>{accuracy.toFixed(1)} %</span>
     </div>
   )

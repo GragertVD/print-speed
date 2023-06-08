@@ -6,6 +6,7 @@ export enum TextActionTypes {
   MOUVE_CURSOR = "MOUVE_CURSOR",
   KEY_MISS = "KEY_MISS",
   KEY_SUCCESS = "KEY_SUCCESS",
+  SET_LANGUAGE = "SET_LANGUAGE",
 }
 
 interface FetchTextAction {
@@ -34,7 +35,17 @@ interface KeySuccessTextAction {
   type: TextActionTypes.KEY_SUCCESS;
 }
 
-export type TextAction = FetchTextAction | FetchSuccessTextAction | FetchErrorTextAction | MouveCursorTextAction | KeyMissTextAction | KeySuccessTextAction;
+interface SetLanguageTextAction {
+  type: TextActionTypes.SET_LANGUAGE;
+  payload: Language;
+}
+
+export type TextAction = FetchTextAction | FetchSuccessTextAction | FetchErrorTextAction | MouveCursorTextAction | KeyMissTextAction | KeySuccessTextAction | SetLanguageTextAction;
+
+export enum Language {
+  EN = "EN",
+  RU = "RU",
+}
 
 export interface TextState {
   text: string,
@@ -44,4 +55,5 @@ export interface TextState {
   keyMiss: boolean,
   countMiss: number,
   error: string | null,
+  lang: Language,
 }

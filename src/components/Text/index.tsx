@@ -1,11 +1,13 @@
 import { CurrentChar, SuccesChar, TextContainer } from "./style";
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react';
 import { useTypedSelector } from '../../hooks/useTypedSelector';
 import { useDispatch } from 'react-redux';
 import { fetchText } from '../../store/action-creators/text';
 import { TextActionTypes } from '../../types/text';
+import { FinishMessage } from "../FinishMessage";
 
 export function Text() {
+  const [openFinishMessage, setOpenFinishMessage] = useState(true);
 
   const state = useTypedSelector(state => state.text);
   const dispatch = useDispatch();
@@ -17,19 +19,21 @@ export function Text() {
     if (e.key.length === 1)
       if (e.key === stateActual.current.currentChar) {
         dispatch({ type: TextActionTypes.MOUVE_CURSOR });
+        if (stateActual.current.currentCharIndex === stateActual.current.text.length - 1) {
+          setOpenFinishMessage(true);
+        }
       }
       else
         dispatch({ type: TextActionTypes.KEY_MISS });
+
   }
 
   useEffect(() => {
-    fetchText()(dispatch);
+    fetchText(state.lang)(dispatch);
 
     document.addEventListener('keydown', keydownValidate);
 
     return (() => {
-      console.log(stateActual);
-
       document.removeEventListener('keydown', keydownValidate)
     })
   }, []);
@@ -43,17 +47,26 @@ export function Text() {
   const textArr = state.text.split('');
 
   return (
-    <TextContainer>
+    <>
+      <TextContainer>
+        {
+          textArr.map((element, index) => {
+            if (index === state.currentCharIndex)
+              return <CurrentChar key={index} keyMiss={state.keyMiss}>{element}</CurrentChar>
+            if (index < state.currentCharIndex)
+              return <SuccesChar key={index}>{element}</SuccesChar>
+            else
+              return <span key={index}>{element}</span>
+          })
+        }
+      </TextContainer>
       {
-        textArr.map((element, index) => {
-          if (index === state.currentCharIndex)
-            return <CurrentChar key={index} keyMiss={state.keyMiss}>{element}</CurrentChar>
-          if (index < state.currentCharIndex)
-            return <SuccesChar key={index}>{element}</SuccesChar>
-          else
-            return <span key={index}>{element}</span>
-        })
+        openFinishMessage
+          ?
+          <FinishMessage setOpenMessage={setOpenFinishMessage} />
+          :
+          <></>
       }
-    </TextContainer>
+    </>
   );
 };

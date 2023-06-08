@@ -1,11 +1,36 @@
 import React from 'react'
-import { HeaderContainer } from './style'
+import { ButtonLanguageContainer, HeaderContainer } from './style'
+import { fetchText, useSetLanguage } from '../../store/action-creators/text'
+import { Language } from '../../types/text';
+import { useDispatch } from 'react-redux';
+import { ChageTheme } from '../UI/ChageTheme'
+
 
 function Header() {
+  const dispatch = useDispatch();
+  const setLanguage = useSetLanguage();
+
   return (
     <HeaderContainer>
-      <button>123</button>
-      <button>456</button>
+      <ButtonLanguageContainer>
+        <button
+          onClick={
+            (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+              setLanguage(Language.EN);
+              fetchText(Language.EN)(dispatch);
+              event.currentTarget.blur();
+            }}
+        >EN</button>
+        <button
+          onClick={
+            (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+              setLanguage(Language.RU);
+              fetchText(Language.RU)(dispatch);
+              event.currentTarget.blur();
+            }}
+        >RU</button>
+      </ButtonLanguageContainer>
+      <ChageTheme />
     </HeaderContainer>
   )
 }

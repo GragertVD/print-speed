@@ -1,7 +1,12 @@
 import styled from 'styled-components';
 
-export const CurrentChar = styled.span<{ keyMiss: boolean }>`
-  background-color: ${props => props.keyMiss ? "red" : "green"};
+export const FooterContainer = styled.footer`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-grow: 1;
+  justify-content: flex-end;
+  margin-top: 25px;
 `;
 
 export const SuccesChar = styled.span`
