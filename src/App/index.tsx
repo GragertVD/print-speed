@@ -9,7 +9,6 @@ import { useTypedSelector } from "../hooks/useTypedSelector";
 function App() {
 
   const state = useTypedSelector(state => state.theme);
-  console.log(state);
 
   return (
     <ThemeProvider theme={state === "light" ? lightTheme : darkTheme}>

@@ -32,7 +32,7 @@ export const FinishMessage: React.FC<IFinishMessage> = ({ setOpenMessage }) => {
                 <h3>Поздравляем</h3>
                 <p>Вы успешно напечатали {state.text.length} символов</p>
                 <p>Допущено {state.countMiss} ошибок</p>
-                <ButtonReload onClick={() => fetchText(state.lang)(dispatch)}>Заново</ButtonReload>
+                <ButtonReload onClick={() => {fetchText(state.lang)(dispatch); setOpenMessage(false);}}>Заново</ButtonReload>
               </>
 
               :

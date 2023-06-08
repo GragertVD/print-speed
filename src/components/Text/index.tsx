@@ -19,7 +19,8 @@ export function Text() {
     if (e.key.length === 1)
       if (e.key === stateActual.current.currentChar) {
         dispatch({ type: TextActionTypes.MOUVE_CURSOR });
-        if (stateActual.current.currentCharIndex === stateActual.current.text.length - 1) {
+        
+        if (!stateActual.current.loading && stateActual.current.currentCharIndex === stateActual.current.text.length - 1) {
           setOpenFinishMessage(true);
         }
       }
