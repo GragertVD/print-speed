@@ -7,7 +7,7 @@ import { TextActionTypes } from '../../types/text';
 import { FinishMessage } from "../FinishMessage";
 
 export function Text() {
-  const [openFinishMessage, setOpenFinishMessage] = useState(true);
+  const [openFinishMessage, setOpenFinishMessage] = useState(false);
 
   const state = useTypedSelector(state => state.text);
   const dispatch = useDispatch();
