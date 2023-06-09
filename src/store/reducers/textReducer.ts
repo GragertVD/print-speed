@@ -18,6 +18,7 @@ export const textReducer = (state: TextState = initState, action: TextAction): T
   switch (action.type) {
     case TextActionTypes.FETCH_TEXT:
       // tempState = initState;
+      tempState.countMiss = 0;
       tempState.loading = true;
       return tempState;
 
@@ -25,6 +26,7 @@ export const textReducer = (state: TextState = initState, action: TextAction): T
       tempState.loading = false;
       tempState.text = action.payload;
       tempState.currentCharIndex = 0;
+      tempState.countMiss = 0;
       tempState.currentChar = tempState.text[0]; 
       return tempState;
 
