@@ -20,7 +20,7 @@
 - React
 - Redux
 - Styled-components
-- React icon
+- ThemeProvider, React icon
 
 ## Запуск локально
 
