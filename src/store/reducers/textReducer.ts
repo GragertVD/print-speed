@@ -27,7 +27,7 @@ export const textReducer = (state: TextState = initState, action: TextAction): T
       tempState.text = action.payload;
       tempState.currentCharIndex = 0;
       tempState.countMiss = 0;
-      tempState.keyMiss = 0;
+      tempState.keyMiss = false;
       tempState.currentChar = tempState.text[0]; 
       return tempState;
 
