@@ -9,6 +9,7 @@ export const CardTestContainer = styled.main`
   border-radius: 10px;
   user-select: none;
   display: grid;
+  gap: 8px;
   grid-template-columns: 4fr 1fr;
 `;
 
