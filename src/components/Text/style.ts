@@ -2,7 +2,8 @@ import styled from 'styled-components';
 
 export const TextContainer = styled.div`
   width: 100%;
-
+  text-align: justify;
+  
   span{
     font-size: 1.2em;
     line-height: 1.5;
