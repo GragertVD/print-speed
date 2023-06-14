@@ -1,6 +1,6 @@
 # Touch Typing Trainer
 
-"Тренажер слепой печати".
+["Тренажер слепой печати"](https://print-speed.vercel.app/).
 
 **Реализовано:**
 
