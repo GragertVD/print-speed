@@ -1,4 +1,4 @@
-import React, { MouseEventHandler } from 'react'
+import React from 'react'
 import { ButtonReload, CardTestContainer, CardTestInfoContainer } from './style'
 import { Text } from '../Text'
 import { SpeedInfo } from '../SpeedInfo'

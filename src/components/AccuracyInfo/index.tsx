@@ -12,7 +12,7 @@ export const AccuracyInfo: React.FC = () => {
   return (
     <div>
       
-      <h4><GiArcheryTarget />{state.lang === Language.RU ? "Точность" : "Accuracy"}</h4>
+      <h2><GiArcheryTarget />{state.lang === Language.RU ? "Точность" : "Accuracy"}</h2>
       <span>{accuracy.toFixed(1)} %</span>
     </div>
   )

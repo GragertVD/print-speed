@@ -1,14 +1,14 @@
 import React from 'react'
 import { ReactComponent as IconDarkTheme } from "../../../img/icon-dark-theme.svg";
 import { ReactComponent as IconLightTheme } from "../../../img/icon-light-theme.svg";
-import Toggle from '../../UI/Toggle';
+import Toggle from '../Toggle';
 import { ChangeThemeContainer } from './style';
 import { useTypedSelector } from '../../../hooks/useTypedSelector';
 import { useDispatch } from 'react-redux';
 import { ThemeActionTypes } from '../../../types/main';
 
 
-export const ChageTheme: React.FC = () => {
+export const ChangeTheme: React.FC = () => {
   const state = useTypedSelector(state => state.theme);
   const dispatch = useDispatch();
 

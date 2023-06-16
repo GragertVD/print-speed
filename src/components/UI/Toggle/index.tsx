@@ -15,11 +15,13 @@ const Toggle: React.FC<IPropsToggle> = (props) => {
     <ToggleStyl
       {...props}
       onClick={
-        () => {
+        (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
           if (props.currentState === props.state[0])
             dispatch({ type: ThemeActionTypes.SET_THEME, payload: props.state[1] })
           if (props.currentState === props.state[1])
             dispatch({ type: ThemeActionTypes.SET_THEME, payload: props.state[0] })
+
+          event.currentTarget.blur();
         }
       }
     ></ToggleStyl>

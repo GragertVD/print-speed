@@ -27,10 +27,10 @@ export const fetchText = (lang: Language) => {
         (res) => {
           switch (lang) {
             case Language.EN:
-              dispatch({ type: TextActionTypes.FETCH_TEXT_SUCCESS, payload: res.data[0] });
+              dispatch({ type: TextActionTypes.FETCH_TEXT_SUCCESS, payload: res.data[0].replaceAll("  ", " ") });
               break;
             case Language.RU:
-              dispatch({ type: TextActionTypes.FETCH_TEXT_SUCCESS, payload: res.data.text });
+              dispatch({ type: TextActionTypes.FETCH_TEXT_SUCCESS, payload: res.data.text.replaceAll("  ", " ") });
               break;
           }
         },

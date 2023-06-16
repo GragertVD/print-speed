@@ -13,12 +13,18 @@ export const HeaderContainer = styled.header`
   display: flex;
   justify-content: space-between;
 
+  h1{
+    text-align: center;
+    color: ${props => props.theme.theme === "light" ? props.theme.colors.black : props.theme.colors.lightGrey};
+  }
+
 `;
 
 export const ButtonLanguageContainer = styled.div`
   display: flex;
   align-items: center;
   gap: 8px;
+  margin-right: 8px;
   button{
     cursor: pointer;
     border: none;

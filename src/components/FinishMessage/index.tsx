@@ -5,7 +5,7 @@ import { Background, FinishMessageContainer } from './style';
 import { useTypedSelector } from '../../hooks/useTypedSelector';
 import { useDispatch } from 'react-redux';
 import { fetchText } from '../../store/action-creators/text';
-import { ButtonReload } from '../CradTest/style';
+import { ButtonReload } from '../CardTest/style';
 import { Language } from '../../types/text';
 
 

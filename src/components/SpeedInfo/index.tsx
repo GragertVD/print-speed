@@ -38,7 +38,7 @@ export const SpeedInfo: React.FC = () => {
 
   return (
     <div>
-      <h4><AiOutlineHistory /> {state.lang === Language.RU ? "Скорость" : "Speed"}</h4>
+      <h2><AiOutlineHistory /> {state.lang === Language.RU ? "Скорость" : "Speed"}</h2>
       <span>{speed.toFixed(0)} { state.lang === Language.RU? "зн./мин" : "CPM"}</span>
     </div>
   )

@@ -3,7 +3,7 @@ import { ButtonLanguageContainer, HeaderContainer } from './style'
 import { fetchText, useSetLanguage } from '../../store/action-creators/text'
 import { Language } from '../../types/text';
 import { useDispatch } from 'react-redux';
-import { ChageTheme } from '../UI/ChageTheme'
+import { ChangeTheme } from '../UI/ChangeTheme'
 
 
 function Header() {
@@ -30,7 +30,8 @@ function Header() {
             }}
         >RU</button>
       </ButtonLanguageContainer>
-      <ChageTheme />
+      <h1>Typing trainer</h1>
+      <ChangeTheme />
     </HeaderContainer>
   )
 }

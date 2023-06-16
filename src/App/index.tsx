@@ -1,5 +1,5 @@
 import { ThemeProvider } from "styled-components";
-import { CardTest } from "../components/CradTest";
+import { CardTest } from "../components/CardTest";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import { AppContainer } from "./style";
